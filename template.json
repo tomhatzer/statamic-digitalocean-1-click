@@ -3,7 +3,7 @@
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
     "image_name": "laravel-20-04-snapshot-{{timestamp}}",
     "apt_packages": "fail2ban mysql-server nginx software-properties-common language-pack-en-base unzip php-cli python3 python3-venv libaugeas0 python3-pip python3-certbot-nginx",
-    "application_name": "Laravel",
+    "application_name": "Statamic",
     "application_version": ""
   },
   "sensitive-variables": ["do_token"],

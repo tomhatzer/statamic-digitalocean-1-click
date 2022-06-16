@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Laravel user configuration
+# Statamic user configuration
 cat >> /root/.bashrc <<EOM
-chmod +x /opt/digitalocean/laravel_setup.sh
-/opt/digitalocean/laravel_setup.sh
+chmod +x /opt/digitalocean/statamic_setup.sh
+/opt/digitalocean/statamic_setup.sh
 EOM
 
 # Remove the ssh force logout command

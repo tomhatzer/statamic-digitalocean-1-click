@@ -10,20 +10,22 @@ rm -rvf /etc/nginx/sites-enabled/default
 curl -sL https://github.com/thedevdojo/larasail/archive/master.tar.gz | tar xz && source larasail-master/install
 
 # Run the LaraSail setup script
-sh /etc/.larasail/larasail setup
-chown larasail: /home/larasail/.my.cnf
+sh /etc/.larasail/larasail setup php81
+
+# Install statamic cli
+COMPOSER_ALLOW_SUPERUSER=1; composer global require statamic/cli
 
 # Create a new Laravel project
-cd /var/www && export COMPOSER_ALLOW_SUPERUSER=1; $HOME/.config/composer/vendor/bin/laravel new laravel
+cd /var/www && export COMPOSER_ALLOW_SUPERUSER=1; $HOME/.config/composer/vendor/bin/statamic new statamic
 
-ln -s /etc/nginx/sites-available/laravel \
-      /etc/nginx/sites-enabled/laravel
+ln -s /etc/nginx/sites-available/statamic \
+      /etc/nginx/sites-enabled/statamic
 
-chown -R larasail: /var/www/laravel
-chown -R larasail:www-data /var/www/laravel/storage
-chmod -R 775 /var/www/laravel/storage
-chown -R larasail:www-data /var/www/laravel/bootstrap/cache
-chmod -R 775 /var/www/laravel/bootstrap/cache
+chown -R larasail: /var/www/statamic
+chown -R larasail:www-data /var/www/statamic/storage
+chmod -R 775 /var/www/statamic/storage
+chown -R larasail:www-data /var/www/statamic/bootstrap/cache
+chmod -R 775 /var/www/statamic/bootstrap/cache
 
 # Lock larasail user
 passwd -ld larasail

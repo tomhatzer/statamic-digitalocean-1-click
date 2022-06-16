@@ -1,22 +1,25 @@
-# Laravel 1-Click installation - DigitalOcean Marketplace
+# THIS IS JUST AN EXAMPLE WHICH WILL NOT WORK! ALL CREDITS BELONG TO THE ORIGIN AUTHOR AND REPOSITORY AT https://github.com/bobbyiliev/laravel-digitalocean-1-click
+## See https://twitter.com/jackmcdade/status/1537498604532801536 for more information.
+
+# Statamic 1-Click installation - DigitalOcean Marketplace
 
 [![Apache license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-This repository contains resources for building the 1-Click installation of [Laravel on DigitalOcean](https://marketplace.digitalocean.com/apps/laravel).
+This repository contains resources for building the 1-Click installation of [Statamic on DigitalOcean](https://marketplace.digitalocean.com/apps/statamic).
 
 ## 1-Click installation
 
-To install the latest version of [Laravel](https://laravel.com/) on DigitalOcean with 1-Click, you can use the following link:
+To install the latest version of [Statamic](https://statamic.com/) on DigitalOcean with 1-Click, you can use the following link:
 
-> [Laravel 1-Click installation - DigitalOcean Marketplace](https://marketplace.digitalocean.com/apps/laravel?refcode=dc19b9819d06&action=deploy)
+> [Statamic 1-Click installation - DigitalOcean Marketplace](https://marketplace.digitalocean.com/apps/statamic?action=deploy)
 
 ## Steps after the installation
 
 In addition to the package installation, the One-Click also:
 
 - Enables the UFW firewall to allow only SSH (port 22, rate limited), HTTP (port 80), and HTTPS (port 443) access.
-- Creates the initial Laravel configuration file to set up database credentials and allow the Laravel instance to connect to the database.
-- After you create a Laravel One-Click Droplet, you’ll need to log into the Droplet via SSH to finish the Laravel setup.
+- Creates the initial Statamic configuration file and allow the Statamic instance to connect to the database.
+- After you create a Statamic One-Click Droplet, you’ll need to log into the Droplet via SSH to finish the Statamic setup.
 
 From a terminal on your local computer, connect to the Droplet as root. Make sure to substitute the Droplet’s public IPv4 address.
 
@@ -33,7 +36,7 @@ Then, the interactive script that runs will first prompt you for your domain or 
 This setup requires a domain name.  If you do not have one yet, you may
 cancel this setup, press Ctrl+C.  This script will run again on your next login
 --------------------------------------------------
-Enter the domain name for your new Laravel site.
+Enter the domain name for your new Statamic site.
 (ex. example.org or test.example.org) do not include www or http/s
 --------------------------------------------------
 Domain/Subdomain name:
@@ -47,15 +50,15 @@ Next, you have the option of configuring LetsEncrypt to secure your new site.  B
 Would you like to use LetsEncrypt (certbot) to configure SSL(https) for your new site? (y/n):
 ```
 
-At this point, you can visit the Droplet’s IP address or your domain name in your browser to see the Laravel installation.
+At this point, you can visit the Droplet’s IP address or your domain name in your browser to see the Statamic installation.
 
-The web root is `/var/www/laravel`, and the Laravel configuration file is `/var/www/laravel/.env`.
+The web root is `/var/www/statamic`, and the Statamic configuration file is `/var/www/statamic/.env`.
 
 You can get information about the PHP installation by logging into the Droplet and running `php -i`.
 
 If you didn’t enable HTTPS during the initial setup script, you can enable it manually at any time after your domain name has been pointed to the Droplet's IP address.
 
-Setting up an SSL certificate enables HTTPS on the web server, which secures the traffic between the server and the clients connecting to it. Certbot is a free and automated way to set up SSL certificates on a server. It’s included as part of the Laravel One-Click to make securing the Droplet easier.
+Setting up an SSL certificate enables HTTPS on the web server, which secures the traffic between the server and the clients connecting to it. Certbot is a free and automated way to set up SSL certificates on a server. It’s included as part of the Statamic One-Click to make securing the Droplet easier.
 
 To use Certbot, you’ll need a registered domain name and two DNS records:
 
@@ -72,11 +75,11 @@ certbot --nginx -d example.com -d www.example.com
 
 For a more detailed walkthrough, you can follow [How to Secure Nginx with Let’s Encrypt](<https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04>) or view [Certbot’s official documentation](<https://certbot.eff.org/docs/using.html>).
 
-You can serve files from the web server by adding them to the web root (`/var/www/laravel`) using [SFTP](<https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server>) or other tools.
+You can serve files from the web server by adding them to the web root (`/var/www/statamic`) using [SFTP](<https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server>) or other tools.
 
 ## LaraSail
 
-The Laravel 1-Click installation ships with the [LaraSail](https://github.com/thedevdojo/larasail) script.
+The Statamic 1-Click installation ships with the [LaraSail](https://github.com/thedevdojo/larasail) script.
 
 LaraSail is a CLI tool for Laravel to help you sail the servers of the DigitalOcean.
 
